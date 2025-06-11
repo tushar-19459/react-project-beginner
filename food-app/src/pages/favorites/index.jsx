@@ -5,9 +5,8 @@ import ErrorMsg from "../../components/Error";
 
 const Favorites = () => {
 
-  const { fav, setFav, loading, setloading, error, setError } = ConsumeContext()
+  const { fav, setFav, loading, setloading, error, setError ,favdata,setFavdata,handleremove} = ConsumeContext()
 
-  const [favdata, setFavdata] = useState([])
 
   async function apicall(params) {
     const responce = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${params}`)
@@ -20,14 +19,14 @@ const Favorites = () => {
 
   console.log(favdata)
 
-  function handleremove(id) {
-    const newData = favdata.filter((item) =>
-      item.id !== id
-    )
-    setFavdata(newData)
-    const newfav = fav.filter(favid => favid !== id)
-    setFav(newfav)
-  }
+  // function handleremove(id) {
+  //   const newData = favdata.filter((item) =>
+  //     item.id !== id
+  //   )
+  //   setFavdata(newData)
+  //   const newfav = fav.filter(favid => favid !== id)
+  //   setFav(newfav)
+  // }
 
   useEffect(() => {
     try {
