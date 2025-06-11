@@ -7,10 +7,8 @@ import {ProvidGloableContext} from './context/index.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <StrictMode>
       <ProvidGloableContext>
         <App />
       </ProvidGloableContext>
-    </StrictMode>,
   </BrowserRouter>
 )
