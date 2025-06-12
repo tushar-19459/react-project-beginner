@@ -5,35 +5,15 @@ import ErrorMsg from "../../components/Error";
 
 const Favorites = () => {
 
-  const { fav, setFav, loading, setloading, error, setError ,favdata,setFavdata,handleremove} = ConsumeContext()
+  const { fav, setFav, loading, setloading, error, setError ,favdata,setFavdata,handleremove,favapicall} = ConsumeContext()
 
-
-  async function apicall(params) {
-    const responce = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${params}`)
-    if (!responce.ok) throw new Error(responce.message);
-    const jsondata = await responce.json()
-    setFavdata(pre =>
-      [...pre, jsondata.data.recipe]
-    )
-  }
-
-  console.log(favdata)
-
-  // function handleremove(id) {
-  //   const newData = favdata.filter((item) =>
-  //     item.id !== id
-  //   )
-  //   setFavdata(newData)
-  //   const newfav = fav.filter(favid => favid !== id)
-  //   setFav(newfav)
-  // }
 
   useEffect(() => {
     try {
       setloading(true)
       if (fav && fav.length) {
         for (let i = 0; i < fav.length; i++) {
-          apicall(fav[i])
+          favapicall(fav[i])
         }
       }
     } catch (error) {
@@ -49,7 +29,6 @@ const Favorites = () => {
     <div className='grid grid-cols-4 max-sm:grid-cols-2'>
       <Loading></Loading>
       <ErrorMsg></ErrorMsg>
-      {error ? <h1 className=" w-dvw text-[60px] font-bold text-center">Error:{error}</h1> : null}
       {fav.length === 0 && <h1 className=" w-dvw text-[60px] font-bold text-center">No Favs</h1>}
       {favdata && favdata.length > 0 &&
         favdata.map((item) =>

@@ -7,9 +7,6 @@ const Hero = () => {
 
     const { data, loading, error, fav, setFav, addfav } = ConsumeContext()
 
-
-    console.log(fav)
-
     return (
         <>
             <Loading></Loading>

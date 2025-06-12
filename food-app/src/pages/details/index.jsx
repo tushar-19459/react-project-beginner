@@ -5,20 +5,12 @@ import Loading from '../../components/Loading'
 
 const Details = () => {
   const data = useParams()
-  const { setloading, setError,addfav,fav } = ConsumeContext()
-  const [itemdetal, setitemdetails] = useState()
-
-  async function apicall() {
-    const responce = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${data.id}`)
-    if (!responce.ok) throw new Error("");
-    const jsondata = await responce.json()
-    setitemdetails(jsondata.data.recipe)
-  }
+  const { setloading, setError, addfav, fav, detailApicall, itemdetal } = ConsumeContext()
 
   useEffect(() => {
     try {
       setloading(true)
-      apicall()
+      detailApicall(data.id)
     } catch (error) {
       setError(error)
     } finally {
@@ -44,13 +36,15 @@ const Details = () => {
             </div>
           </div>
           <div className='flex flex-col justify-center items-center'>
-            <div className='grid grid-cols-2 border border-black mb-5'>
-              <div className='text-center border border-black flex items-center justify-center font-bold h-[50px]'>INGREDIENTS</div><div className='text-center font-bold border-black flex items-center justify-center border ' >QUANTITY</div>
+            <div className='border border-black mb-5'>
+              <div className='grid grid-cols-2'>
+                <div className='text-center border border-black flex items-center justify-center font-bold h-[50px]'>INGREDIENTS</div><div className='text-center font-bold border-black flex items-center justify-center border ' >QUANTITY</div>
+              </div>
               {
                 itemdetal.ingredients.map((item, index) => (
-                  <>
+                  <div key={index} className='grid grid-cols-2'>
                     <div key={index} className='border flex items-center justify-center  h-[50px] text-center' >{item.description} </div><div className='border  text-center flex items-center justify-center'> {item.quantity} {item.unit}</div>
-                  </>
+                  </div>
                 ))
               }
             </div>
