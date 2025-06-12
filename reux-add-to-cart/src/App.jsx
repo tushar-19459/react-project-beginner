@@ -6,9 +6,9 @@ import Cart from "./pages/Cart/Cart";
 export default function App() {
   return (
     <Routes>
-      <Route to="/" element={<Home></Home>} />
-      <Route to="/details" element={<Details></Details>} />
-      <Route to="/cart" element={<Cart></Cart>} />
+      <Route path="/" element={<Home />} />
+      <Route path="/details" element={<Details />} />
+      <Route path="/cart" element={<Cart />} />
     </Routes>
-  )
+  );
 }
