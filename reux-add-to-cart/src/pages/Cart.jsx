@@ -1,20 +1,18 @@
-import { useSelector } from 'react-redux'
-import MainGrid from '../components/MainGrid';
-
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Cartbilling from '../components/Cartbilling';
+import Emptycart from '../components/Emptycart';
 const Cart = () => {
-  const cartItems = useSelector(state=>state.cart)
+  const cartItems = useSelector(state => state.cart)
+  if (cartItems.length === 0) {
+    return <Emptycart></Emptycart>
+  }
   return (
-    <div className='overflow-y-hidden'>
-    {!cartItems.length>0 && 
-    <div className=' h-2/3 flex  flex-col justify-center items-center	overflow-x-hidden	overflow-y-hidden'>
-      <div className=' h-[250px]'>
-      <img className='h-full' src="notfound.jpg" alt="" />
-      </div>
-      <h1 className='text-[50px] font-bold'>Cart is empty</h1>
-    </div> }
-    <MainGrid data={cartItems}/>
-    </div>
-  )
-}
-
-export default Cart
+    <>
+      {cartItems && cartItems.length > 0 &&
+        <Cartbilling></Cartbilling>
+      }
+    </>
+  );
+};
+export default Cart;

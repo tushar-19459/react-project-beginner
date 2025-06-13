@@ -30,7 +30,7 @@ const Home = () => {
     apicallHome()
   }, [])
 
-  if (loading) return <div className='border relative flex h-dvh justify-center items-center' ><img src="vite.svg" className='h-5' alt="" /><AiOutlineLoading size={100} className='absolute animate-spin ' /></div>
+  if (loading) return <div className='border relative flex h-dvh justify-center items-center' ><img src="vite.svg" className='h-5' alt="" />Loading...<AiOutlineLoading size={100} className='absolute animate-spin ' /></div>
   if (error) return <div>Error:{error}</div>
 
   return (

@@ -1,14 +1,23 @@
 import React from 'react'
 import { FaStar } from "react-icons/fa";
-import { useDispatch } from 'react-redux';
-import { addtoc } from '../store/store-slice/cart-slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, removeFromCart } from '../store/store-slice/cart-slice';
 
 const MainGrid = ({ data }) => {
 
     const dispatch = useDispatch()
+    const cartItems = useSelector(state => state.cart);
 
-    function handleaddtocart(item) {
-        dispatch(addtoc(item))
+
+    function handleAdd(item) {
+        cartItems.map((product) =>
+            product.id === item.id
+        )
+        dispatch(addToCart(item))
+    }
+
+    function handlRemove(item) {
+        dispatch(removeFromCart(item))
     }
 
     return (
@@ -22,7 +31,7 @@ const MainGrid = ({ data }) => {
                         <div className="  flex w-full justify-center h-1/5 space-x-10 items-center ">
                             <div>
                                 <p>{(item.title).split(/[\s/\\]+/).slice(0, 3).join(" ")}</p>
-                                <button className='bg-black text-white border rounded-xl w-3/4 h-7 m-2 hover:bg-white hover:text-black duration-300 ease-in hover:border-black' onClick={() => handleaddtocart(item)}>Add to Cart</button>
+                                <button className='bg-black text-white border rounded-xl w-3/4 h-7 m-2 hover:bg-white hover:text-black duration-300 ease-in hover:border-black' onClick={() => cartItems.some(producet=>item.id===producet.id)? handlRemove(item.id):handleAdd(item)}>Add to Cart</button>
                             </div>
 
                             <div className=' w-1/4'>
@@ -31,7 +40,7 @@ const MainGrid = ({ data }) => {
                                     <p>({item.rating.count})</p>
                                 </div>
                                 <div className='text-center'>
-                                    <p className='font-bold'>₹{item.price}</p>
+                                    <p className='font-bold'>₹{(item.price)}</p>
                                 </div>
                             </div>
                         </div>
