@@ -12,7 +12,7 @@ const NavBar = () => {
   const { setSearch, search,handlesearch } = ContextConsumer()
 
   return (
-    <div className=' fixed h-20 bg-white flex items-center w-dvw place-content-between'>
+    <div className=' fixed h-20 backdrop-blur-md flex items-center w-dvw place-content-between'>
       <div className=' z-10 text-center w-1/6  flex items-center justify-center'><Link to='/'><LiaStoreAltSolid size={40} /></Link></div>
       <div className=' w-1/4'>
         <form action="" onSubmit={(e) => handlesearch(e)}>
