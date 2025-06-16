@@ -33,10 +33,10 @@ const Details = () => {
             {loading && <Loading />}
             {productDetail &&
 
-                <div className='grid  grid-cols-2 '>
-                    <div className=' flex justify-center items-center'><img className='h-4/5' src={productDetail.images[0]} alt="" /></div>
-                    <div >
-                        <p className='font-bold text-4xl pt-20'>{productDetail.title}</p>
+                <div className='grid grid-cols-2 max-xl:grid-cols-1 '>
+                    <div className=' flex justify-center items-center '><img className='h-4/5' src={productDetail.images[0]} alt="" /></div>
+                    <div className='flex flex-col justify-center'>
+                        <p className='font-bold text-4xl '>{productDetail.title}</p>
                         <p className='pt-2 text-gray-500'>{productDetail.description}</p>
 
                         <div className='pt-5 grid grid-cols-2'>
