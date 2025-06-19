@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.body{
+    background-color:#393E46
+}
+
+.test1{
+    @apply border border-red-500
+}
+.test2{
+    @apply border border-pink-500
+}
+.test3{
+    @apply border border-green-500
+}
+.animate{
+    @apply transition-all ease-in-out duration-700 
+}
+.main-text{
+    @apply font-megrim hover:text-[#00ADB5] text-white uppercase font-bold
+}
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE/Edge */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.no-vertical-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.no-vertical-scrollbar::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* Chrome/Safari */
+}

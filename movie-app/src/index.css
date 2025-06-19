@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.body {
+  background-color: #393e46;
+}
+
+.test1 {
+  @apply border border-red-500;
+}
+.test2 {
+  @apply border border-pink-500;
+}
+.test3 {
+  @apply border border-green-500;
+}
+.animate {
+  @apply transition-all ease-in-out duration-700;
+}
+.main-text {
+  @apply hover:text-[#00ADB5] text-white uppercase font-bold;
+}
