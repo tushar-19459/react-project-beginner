@@ -8,9 +8,8 @@ const Favorites = () => {
   console.log(favitems)
 
   return (
-    <div className='test1 h-screen overflow-x-hidden bg-[#222831]'>
+    <div className=' h-screen overflow-x-hidden bg-[#222831]'>
     <NavBar></NavBar>
-    {/* {!favitems && <div>empty</div> } */}
     <MainGrid data={favitems}></MainGrid>
 
     </div>

@@ -10,7 +10,7 @@ const PopUp = () => {
     const { loading, error, setShow, show, details } = UseContext()
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const favitems = useSelector(state=>state.favorite)
+    const favitems = useSelector(state => state.favorite)
 
     function handleLike(item) {
         dispatch(addtoFav(item))
@@ -33,7 +33,6 @@ const PopUp = () => {
                         </div>
                     </div>
                     <div className='flex justify-center items-center font-bold text-black opacity-1 2xl:opacity-0 xl:opacity-0 md:opacity-0 sm:opacity-1'>
-
                         <p className='text-4xl  '>{details.title}</p>
                         <p className='text-1xl self-end'>⭐{details.vote_average.toFixed(1)}</p>
                     </div>
@@ -53,8 +52,8 @@ const PopUp = () => {
                                     <p className='m-4 '>Original Language : "{details.original_language}" </p>
                                     <p className='text-justify'>{details.overview}</p>
                                 </div>
-                                <div className='flex w-full test1 justify-center font-normal p-3 '>
-                                    <button className='bg-[#222831] min-h-2/3 text-white w-2/3 px-1 font-bold  min-h-16 scale-[0.8]   animate rounded-lg  hover:px-3 hover:text-[#222831] hover:scale-[0.9] hover:bg-[#00ADB5] ' onClick={()=>handleLike(details)} > {favitems.some((item)=>item.id===details.id)?'Remove From Favorites' : 'Add to Favorites'}</button>
+                                <div className='flex w-full  justify-center font-normal p-3 '>
+                                    <button className='bg-[#222831] min-h-2/3 text-white w-2/3 px-1 font-bold  min-h-16 scale-[0.8]   animate rounded-lg  hover:px-3 hover:text-[#222831] hover:scale-[0.9] hover:bg-[#00ADB5] ' onClick={() => handleLike(details)} > {favitems.some((item) => item.id === details.id) ? 'Remove From Favorites' : 'Add to Favorites'}</button>
                                 </div>
                             </div>
                         </div>
