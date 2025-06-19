@@ -61,8 +61,9 @@ export function ProvideContext({ children }) {
 
     function handleSearch(e) {
         e.preventDefault();
-        searchFor(search.trim)
         navigate(`/search/${search}`)
+        searchFor(search)
+        setSearch("")
     }
 
     async function apicall(page) {

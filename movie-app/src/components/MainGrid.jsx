@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react"
 import { UseContext } from "../context/context"
 import PopUp from "./PopUp"
+import { useNavigate } from "react-router-dom"
 
 const MainGrid = ({ data }) => {
 
   const { loading, error, show, scroll, setShow, setDetails, } = UseContext()
+  const navigate = useNavigate()
 
   function getDetail(item) {
     setShow(true)
     setDetails(item)
-    scroll.current?.scrollIntoView({ behavior: "smooth" });
+    // scroll.current?.scrollIntoView({ behavior: "smooth" });
+    navigate("/details")
   }
 
   return (
