@@ -14,8 +14,8 @@ const Home = () => {
   }, [page])
 
   return (
-    <div className='relative overflow-x-hidden h-dvh w-dvw'>
-      {show && <div className="absolute z-50 w-dvh h-dvh test1 overflow-hidden "><PopUp></PopUp></div>}
+    <div className='relative overflow-x-hidden bg-[#222831] h-dvh w-dvw bg'>
+      {show && <div className="absolute z-50 w-dvh h-dvh  overflow-hidden "><PopUp></PopUp></div>}
       <NavBar></NavBar>
       {data ? <MainGrid data={data}></MainGrid> : null}
       <Footer></Footer>

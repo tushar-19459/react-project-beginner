@@ -1,4 +1,3 @@
-import React from 'react'
 import { LuPopcorn } from "react-icons/lu";
 import { Link } from 'react-router-dom';
 import { UseContext } from '../context/context';

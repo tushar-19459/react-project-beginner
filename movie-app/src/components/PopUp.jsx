@@ -23,13 +23,13 @@ const PopUp = () => {
     }
 
     return (
-        <div className=' backdrop-blur-md h-full' >
+        <div className=' backdrop-blur-md h-full overflow-hidden' >
             <img src={`https://image.tmdb.org/t/p/w500/${details.backdrop_path}`} className='absolute overflow-x-hidden w-full h-full object-cover z-0 opacity-[0.4]' alt="" />
             {show &&
-                <div className=' z-50 overflow-hidden' >
-                    <div className='flex'>
-                        <div className=' z-50 absolute text-black hover:text-red-500 animate  '>
-                            <IoIosCloseCircle className=' ' size={50} onClick={() => closePopUP()} />
+                <div className=' z-50 overflow-hidden h-screen' >
+                    <div className='flex justify-end '>
+                        <div className=' z-50 absolute text-black hover:text-red-800 animate  '>
+                            <IoIosCloseCircle className='hover:animate-spin animate ' size={50} onClick={() => closePopUP()} />
                         </div>
                     </div>
                     <div className='flex justify-center items-center font-bold text-black opacity-1 2xl:opacity-0 xl:opacity-0 md:opacity-0 sm:opacity-1'>
@@ -37,7 +37,7 @@ const PopUp = () => {
                         <p className='text-1xl self-end'>⭐{details.vote_average.toFixed(1)}</p>
                     </div>
                     <div className='grid grid-cols-2 items-center h-screen max-sm:grid-cols-1 max-sm:overflow-y-auto '>
-                        <div className='flex justify-center  items-center w-full h-screen '>
+                        <div className='flex justify-center items-center  w-full h-screen '>
                             <img src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} className='z-50  h-5/6 rounded-xl' alt="" />
                             <p></p>
                         </div>

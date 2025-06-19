@@ -5,6 +5,7 @@ import Favorites from './pages/Favorites'
 import { ProvideContext } from './context/context.jsx'
 import Search from './pages/Search.jsx'
 import PopUp from './components/PopUp.jsx'
+import PageNotFound from './pages/PageNotFound.jsx'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path='/favorites' element={<Favorites></Favorites>}></Route>
         <Route path='/search/:text' element={<Search></Search>}></Route>
         <Route path='/details' element={<PopUp></PopUp>}></Route>
+        <Route path='/*' element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
     </ProvideContext>
   )
